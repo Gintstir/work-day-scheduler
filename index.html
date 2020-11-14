@@ -23,70 +23,112 @@
 
   <body>
     <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <h1 class="display-3">Daily Planner</h1>
+      <p class="lead">An easy to use and simple app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
+
+
     <div class="container">
       <!-- Timeblocks go here -->
-      <div class="row">
-        <div class="col-2">8 AM</div>
-        <div class="col-8">tasks will go here</div>
-        <div class="col-2">save button</div>
+
+      <!-- 8 AM row -->
+      <div class="row justify-content-md-center border-top border-bottom calender-row"id="schedRow0">       
+        <div class="col-md-1" id="time0">8 AM</div>                
+        <textarea rows="3" id="textInput0" class="col-md-10 description"></textarea>        
+        <button id="saveButton" class="saveBtn col-md-1"><i class="far fa-save"></i></button>        
       </div>
-      <div class="row">
-        <div class="col-2">9 AM</div>
-        <div class="col-8">tasks will go here</div>
-        <div class="col-2">save button</div>
+
+      <!-- 9 AM row -->
+      <div class="row justify-content-md-center border-top border-bottom calender-row"id="schedRow1">       
+        <div class="col-md-1" id="time1">9 AM</div>                
+        <textarea rows="3" id="textInput1" class="col-md-10 description"></textarea>        
+        <button id="saveButton" class="saveBtn col-md-1"><i class="far fa-save"></i></button>        
       </div>
-      <div class="row">
-        <div class="col-2">10 AM</div>
-        <div class="col-8">tasks will go here</div>
-        <div class="col-2">save button</div>
+
+
+      <!-- 10 AM row -->
+      <div class="row justify-content-md-center border-top border-bottom calender-row"id="schedRow2">       
+        <div class="col-md-1" id="time2">10 AM</div>                
+        <textarea rows="3" id="textInput2" class="col-md-10 description"></textarea>        
+        <button id="saveButton" class="saveBtn col-md-1"><i class="far fa-save"></i></button>        
       </div>
-      <div class="row">
-        <div class="col-2">11 AM</div>
-        <div class="col-8">tasks will go here</div>
-        <div class="col-2">save button</div>
+
+
+      <!-- 11 AM row -->
+      <div class="row justify-content-md-center border-top border-bottom calender-row"id="schedRow3">       
+        <div class="col-md-1" id="time3">11 AM</div>                
+        <textarea rows="3" id="textInput3" class="col-md-10 description"></textarea>        
+        <button id="saveButton" class="saveBtn col-md-1"><i class="far fa-save"></i></button>        
       </div>
-      <div class="row">
-        <div class="col-2">12 AM</div>
-        <div class="col-8">tasks will go here</div>
-        <div class="col-2">save button</div>
+
+
+      <!-- 12 AM row -->
+      <div class="row justify-content-md-center border-top border-bottom calender-row"id="schedRow4">       
+        <div class="col-md-1" id="time4">12 PM</div>                
+        <textarea rows="3" id="textInput4" class="col-md-10 description"></textarea>        
+        <button id="saveButton" class="saveBtn col-md-1"><i class="far fa-save"></i></button>        
       </div>
-      <div class="row">
-        <div class="col-2">1 PM</div>
-        <div class="col-8">tasks will go here</div>
-        <div class="col-2">save button</div>
+
+
+      <!-- 1 PM row -->
+      <div class="row justify-content-md-center border-top border-bottom calender-row"id="schedRow5">       
+        <div class="col-md-1" id="time5">1 PM</div>                
+        <textarea rows="3" id="textInput5" class="col-md-10 description"></textarea>        
+        <button id="saveButton" class="saveBtn col-md-1"><i class="far fa-save"></i></button>        
       </div>
-      <div class="row">
-        <div class="col-2">2 PM</div>
-        <div class="col-8">tasks will go here</div>
-        <div class="col-2">save button</div>
+
+
+      <!-- 2 PM row -->
+      <div class="row justify-content-md-center border-top border-bottom calender-row"id="schedRow6">       
+        <div class="col-md-1" id="time6">2 PM</div>                
+        <textarea rows="3" id="textInput6" class="col-md-10 description"></textarea>        
+        <button id="saveButton" class="saveBtn col-md-1"><i class="far fa-save"></i></button>        
       </div>
-      <div class="row">
-        <div class="col-2">3 PM</div>
-        <div class="col-8">tasks will go here</div>
-        <div class="col-2">save button</div>
+
+
+      <!-- 3 PM row -->
+      <div class="row justify-content-md-center border-top border-bottom calender-row"id="schedRow7">       
+        <div class="col-md-1" id="time7">3 PM</div>                
+        <textarea rows="3" id="textInput7" class="col-md-10 description"></textarea>        
+        <button id="saveButton" class="saveBtn col-md-1"><i class="far fa-save"></i></button>        
       </div>
-      <div class="row">
-        <div class="col-2">4 PM</div>
-        <div class="col-8">tasks will go here</div>
-        <div class="col-2">save button</div>
+
+
+      <!-- 4 PM row -->
+      <div class="row justify-content-md-center border-top border-bottom calender-row"id="schedRow8">       
+        <div class="col-md-1" id="time8">4 PM</div>                
+        <textarea rows="3" id="textInput8" class="col-md-10 description"></textarea>        
+        <button id="saveButton" class="saveBtn col-md-1"><i class="far fa-save"></i></button>        
       </div>
-      <div class="row">
-        <div class="col-2">5 PM</div>
-        <div class="col-8">tasks will go here</div>
-        <div class="col-2">save button</div>
+      <!-- 5 PM row -->
+      <div class="row justify-content-md-center border-top border-bottom calender-row"id="schedRow9">       
+        <div class="col-md-1" id="time9">5 PM</div>                
+        <textarea rows="3" id="textInput9" class="col-md-10 description"></textarea>        
+        <button id="saveButton" class="saveBtn col-md-1"><i class="far fa-save"></i></button>        
       </div>
-      <div class="row">
-        <div class="col-2">6 PM</div>
-        <div class="col-8">tasks will go here</div>
-        <div class="col-2">save button</div>
+
+      <!-- 6 PM row -->
+      <div class="row justify-content-md-center border-top border-bottom calender-row"id="schedRow10">       
+        <div class="col-md-1" id="time10">6 PM</div>                
+        <textarea rows="3" id="textInput10" class="col-md-10 description"></textarea>        
+        <button id="saveButton" class="saveBtn col-md-1"><i class="far fa-save"></i></button>        
       </div>
+
     </div>
 
+    <footer>
+      <div class="container">
+        <div class="row footerRow">
+          <div class="col-12 justify-content-center">Made with ❤ by me</div>         
+        </div>
+      </div>      
+    </footer>
+
+      
+      
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
