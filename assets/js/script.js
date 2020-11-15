@@ -48,16 +48,18 @@ let workHours = {
     })
   }; 
   
-  let counter = 0;//let counter equal number
+  let counter = 0;//let counter equals number
   //for loop need let/var to get textArea id and time row id, refernce workHours
   //property of workHours is a string
-  for(const property in workHours) {
+  for(const property in workHours) {//"8AM", "9AM" etc
     let textEntry = "#textInput" + counter; //id for textarea + increment to go through through each text area
-    $(textEntry).text(workHours[property]);
-    let timeId = "#time" + counter; //id for timeblock
+    $(textEntry).text(workHours[property]); //use bracket notation bc workHours property contains spaces
+    let timeId = "#time" + counter; //id for timeblock: time1, time2, etc
     let presentHour = moment().hour();//present time
     let timeString = $(timeId).text();
-    let timeNumber = hourNumberFromString(timeString);  
+    let timeNumber = hourNumberFromString(timeString);  //got numeric values to change row colors
+    
+    //change row colors based on time of day, gray(past) for time < than present, red for present, green(future) for time > present.  Use preloaded css classes
     if(timeNumber < presentHour) {
       $(textEntry).addClass("past");
     } else if (timeNumber > presentHour) {
@@ -67,7 +69,7 @@ let workHours = {
     }
     counter ++;
   };
-  
+  // listening for button click
   $("button").click(function() {
     value = $(this).siblings("textarea").val();
     hourString = $(this).siblings("div").text();
@@ -76,13 +78,13 @@ let workHours = {
   });
   
   
-  
-  function loadCorrectDataset() {
+  //saving tasks to local storage
+  function loadSavedData() {
     result = localStorage.getItem('workHours')
     return (result ? result : workHours);
   };
   
-  function initializeLocalStorage() {
+  function primeLocalStorage() {
     localStorage.setItem('workHours', JSON.stringify(workHours));
   };
   
@@ -92,7 +94,7 @@ let workHours = {
   
   function saveSchedule(hourString, val) {
     if(!localStorage.getItem('workHours')) {
-      initializeLocalStorage();
+      primeLocalStorage();
     }
   
     let workHours = JSON.parse(localStorage.getItem('workHours'));
