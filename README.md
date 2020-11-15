@@ -19,12 +19,12 @@ Here is a link to the [github repository](https://github.com/Gintstir/work-day-s
 ## **Motivation**
 
 This was a difficult challenge.  It helped reinforce some very- for me at least- hard-to-grasp concepts.  These included:
-- learning introductory JS.
-- Gaining a better understanding of JS syntax and structure
+- Getting a better handle on JS.
+- Gaining a better understanding of vanilla JS/jQuery syntax and structure.
 - Using localStorage
 - Learning about and implementing:
     - DOM manipulation
-    - Using Third Party APIs<br>  
+    - Using Third Party APIs to style and improve UI<br>  
 
 ## **Build Status**
 
@@ -50,7 +50,7 @@ This is a screenshot of the mock up we were to use as a guide:
 
 Here are some screenshots of the deployed site:
 
->![Deployed-website-Questions](./assets/images/screencapture-file-C-Users-gints-Desktop-projects-work-day-scheduler-index-html-2020-11-15-17_10_08.png)
+>![Deployed-scheduler](./assets/images/screencapture-file-C-Users-gints-Desktop-projects-work-day-scheduler-index-html-2020-11-15-17_25_21.png)
 
 
 ## **Credits**
