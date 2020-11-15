@@ -1,8 +1,8 @@
 // display the current date the top of the page
 $("#currentDay").text(moment().format('MMMM Do, YYYY'));
-
-
-let workDay = {
+console.log("this is a test");//this is a test
+// turn timeblocks into object "<div class="col-md-1" id="time1">9 AM</div>"
+let workHours = {
     "8 AM": "",
     "9 AM": "",
     "10 AM": "",
@@ -15,43 +15,8 @@ let workDay = {
     "5 PM": "",
     "6 PM": ""
   };
-  
-  $(document).ready(function(){
-    if(!localStorage.getItem('workDay')) {
-      updateCalendarTasks(workDay);
-    } else {
-      updateCalendarTasks(JSON.parse(localStorage.getItem('workDay')));
-    }
-  })
-  
- 
-  
-  let counter = 0;
-  for(const property in workDay) {
-    let textEntry = "#textInput" + counter;
-    $(textEntry).text(workDay[property]);
-    let timeId = "#time" + counter;
-    let presentHour = moment().hour();
-    let timeString = $(timeId).text();
-    let timeNumber = hourNumberFromHourString(timeString);  
-    if(timeNumber < presentHour) {
-      $(textEntry).addClass("past");
-    } else if (timeNumber > presentHour) {
-      $(textEntry).addClass("future");
-    } else {
-      $(textEntry).addClass("present");
-    }
-    counter ++;
-  }
-  
-  $("button").click(function() {
-    value = $(this).siblings("textarea").val();
-    hourString = $(this).siblings("div").text();
-    
-    saveSchedule(hourString, value);
-  });
-  
-  function hourNumberFromHourString(hourString) {
+  //use function with switch statement to get numeric value from string value, return in military time 8-18
+  function hourNumberFromString(hourString) {
     switch(hourString) {
       case "8 AM": return 8;
       case "9 AM": return 9;
@@ -65,35 +30,75 @@ let workDay = {
       case "5 PM": return 17;
       case "6 PM": return 18;
     }
-  }
-  
-  function loadCorrectDataset() {
-    result = localStorage.getItem('workDay')
-    return (result ? result : workDay);
-  }
-  
-  function initializeLocalStorage() {
-    localStorage.setItem('workDay', JSON.stringify(workDay));
   };
-  
-  function saveToLocalStorage(dayObj) {
-    localStorage.setItem('workDay', JSON.stringify(dayObj));
-  }
-  
-  function saveSchedule(hourString, val) {
-    if(!localStorage.getItem('workDay')) {
-      initializeLocalStorage();
+
+//document is "ready"
+  $(document).ready(function(){
+    if(!localStorage.getItem('workHours')) {
+      updateCalendarTasks(workHours);
+    } else {
+      updateCalendarTasks(JSON.parse(localStorage.getItem('workHours')));
     }
-  
-    let workHours = JSON.parse(localStorage.getItem('workDay'));
-    workHours[hourString] = val
-  
-    saveToLocalStorage(workHours);
-  }
-  
+  });
+
   function updateCalendarTasks(dayObject) {
-    $(".calender-row").each(function(index) {
+    $(".schedule-row").each(function(index) {
       let res = $(this).children("div");
       $(this).children("textarea").text(dayObject[res.text()]);
     })
-  }
+  }; 
+  
+  let counter = 0;//let counter equal number
+  //for loop need let/var to get textArea id and time row id, refernce workHours
+  //property of workHours is a string
+  for(const property in workHours) {
+    let textEntry = "#textInput" + counter; //id for textarea + increment to go through through each text area
+    $(textEntry).text(workHours[property]);
+    let timeId = "#time" + counter; //id for timeblock
+    let presentHour = moment().hour();//present time
+    let timeString = $(timeId).text();
+    let timeNumber = hourNumberFromString(timeString);  
+    if(timeNumber < presentHour) {
+      $(textEntry).addClass("past");
+    } else if (timeNumber > presentHour) {
+      $(textEntry).addClass("future");
+    } else {
+      $(textEntry).addClass("present");
+    }
+    counter ++;
+  };
+  
+  $("button").click(function() {
+    value = $(this).siblings("textarea").val();
+    hourString = $(this).siblings("div").text();
+    
+    saveSchedule(hourString, value);
+  });
+  
+  
+  
+  function loadCorrectDataset() {
+    result = localStorage.getItem('workHours')
+    return (result ? result : workHours);
+  };
+  
+  function initializeLocalStorage() {
+    localStorage.setItem('workHours', JSON.stringify(workHours));
+  };
+  
+  function saveToLocalStorage(dayObj) {
+    localStorage.setItem('workHours', JSON.stringify(dayObj));
+  };
+  
+  function saveSchedule(hourString, val) {
+    if(!localStorage.getItem('workHours')) {
+      initializeLocalStorage();
+    }
+  
+    let workHours = JSON.parse(localStorage.getItem('workHours'));
+    workHours[hourString] = val
+  
+    saveToLocalStorage(workHours);
+  };
+  
+  
